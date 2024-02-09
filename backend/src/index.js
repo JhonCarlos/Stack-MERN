@@ -1,12 +1,14 @@
-const app = require('./app');
+require('dotenv').config();// crea las variables de entorno
 
+const app = require('./app');
+require('./database');
 
 async function main()
 {
 
-    app.listen(4000);
-    console.log('Server on port 4000');
-
+    await app.listen(app.get('port'));
+    console.log('Server on port ',app.get('port'));
+    
 }
 
 
